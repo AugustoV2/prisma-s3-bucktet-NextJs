@@ -21,7 +21,7 @@ model Info {
   firstname String
   lastname String
   company String
-  phone Int
+  phone String
   weburl String
   unique String
   email String

@@ -28,25 +28,16 @@ const prisma = new PrismaClient()
 //     console.log(user)
 // }
 
-export default async function details(request: NextRequest) {
-    const detailsform = await request.json()
+
+export async function Details(request: NextRequest) {
+    const detailsform = await request.json();
+    const datafield = detailsform.newdata;
         const pr = await prisma.info.create({
-            data:{...detailsform}
+            data:{...datafield}
         })
     
         console.log(pr)
+    
+    return NextResponse.json({ message: 'Hello - POST' });
 }
-
-
-// read(), write() ,update()
-//   .then(async () => {
-//     await prisma.$disconnect()
-//   })
-//   .catch(async (e) => {
-//     console.error(e)
-//     await prisma.$disconnect()
-//     process.exit(1)
-//   })
-
-
 
